@@ -1,0 +1,262 @@
+html {
+  width: 100%;
+  height: 100%;
+  font-family: 'Manrope', sans-serif;
+  --dark-grayfish:  hsl(217, 19%, 35%);
+  --dark-blue: hsl(214, 17%, 51%);
+  --grayfish-blue: hsl(212, 23%, 69%);
+  --light-grayfish: hsl(210, 46%, 95%);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: var(--light-grayfish);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "left right right right";
+  -ms-grid-columns: 2fr 1fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+  width: 850px;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 150px;
+  position: relative;
+}
+
+.container .shadow {
+  z-index: -99;
+  position: absolute;
+  width: 90%;
+  height: 85%;
+  left: 5%;
+  top: 10%;
+  -webkit-box-shadow: 0 0 50px 0px var(--dark-blue);
+          box-shadow: 0 0 50px 0px var(--dark-blue);
+  background-color: black;
+}
+
+.container .left {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: left;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  background-image: url("/images/drawers.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px 0 0 10px;
+}
+
+.container .right {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-area: right;
+  padding: 40px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.container .right .tooltip-container {
+  position: absolute;
+  left: 69%;
+  bottom: 90px;
+  opacity: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: -1;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.container .right .tooltip-container .tooltip {
+  background-color: var(--dark-grayfish);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 160px;
+  padding: 15px 25px 15px 25px;
+  border-radius: 5px;
+}
+
+.container .right .tooltip-container .tooltip h5 {
+  color: var(--grayfish-blue);
+  font-weight: lighter;
+  font-size: 10px;
+  letter-spacing: 5px;
+  margin-top: 2px;
+}
+
+.container .right .tooltip-container .tri {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--dark-grayfish);
+}
+
+.container .right h3 {
+  color: var(--dark-grayfish);
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.container .right p {
+  color: var(--dark-blue);
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.container .right .profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container .right .profile .p-left {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "pp name-id";
+  -ms-grid-columns: 1fr auto;
+      grid-template-columns: 1fr auto;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+}
+
+.container .right .profile .p-left img {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: pp;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.container .right .profile .p-left .name {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: name-id;
+  margin-top: 3px;
+}
+
+.container .right .profile .p-left .name h5 {
+  color: var(--dark-grayfish);
+  margin-bottom: 2px;
+}
+
+.container .right .profile .p-left .name p {
+  color: var(--dark-blue);
+}
+
+.container .right .profile .p-right {
+  background-color: var(--light-grayfish);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.container .right .profile .p-right img {
+  margin-top: 7px;
+}
+
+.container .right .profile .p-right:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 950px) {
+  body {
+    min-height: 700px;
+  }
+  .container {
+    display: -ms-grid;
+    display: grid;
+        grid-template-areas: "left" "right";
+    -ms-grid-columns: auto;
+        grid-template-columns: auto;
+    width: 80%;
+    margin-top: 100px;
+  }
+  .container .left {
+    width: 100%;
+    height: 200px;
+    background-color: red;
+    background-image: url("/images/drawers.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px 10px 0 0;
+  }
+  .container .right {
+    padding-bottom: 10px;
+  }
+  .container .right h3 {
+    font-size: 18px;
+  }
+  .container .right p {
+    font-size: 12px;
+  }
+  .container .right .p-right {
+    z-index: 99;
+  }
+  .container .right .tooltip-container {
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+    width: 100%;
+    background-color: var(--dark-grayfish);
+    border-radius: 0 0 10px 10px;
+    display: block;
+  }
+  .container .right .tooltip-container .tri {
+    display: none;
+  }
+  .container .right .tooltip-container .tooltip {
+    margin-left: 30px;
+    width: 60%;
+    padding: 0;
+    padding-top: 30px;
+    padding-bottom: 45px;
+    background: none;
+  }
+  .container .right .tooltip-container .tooltip h5 {
+    font-size: 14px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

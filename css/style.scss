@@ -1,0 +1,261 @@
+html{
+    width: 100%;
+    height: 100%;
+    
+    font-family: 'Manrope', sans-serif;
+    --dark-grayfish :  hsl(217, 19%, 35%);
+    --dark-blue: hsl(214, 17%, 51%);
+    --grayfish-blue: hsl(212, 23%, 69%);
+    --light-grayfish: hsl(210, 46%, 95%);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-grayfish);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.container{
+    display: grid;
+    grid-template-areas: "left right right right";
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    width: 850px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 150px;
+    position: relative;
+    
+    
+    .shadow{
+        z-index: -99;
+        position: absolute;
+        width: 90%;
+        height: 85%;
+        left: 5%;
+        top: 10%;
+        box-shadow: 0 0 50px 0px var(--dark-blue);
+        background-color: black;
+    }
+    
+    
+    .left{
+        grid-area: left;
+        width: 100%;
+        height: 100%;
+        background-color: red;
+        background-image: url('/images/drawers.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 10px 0 0 10px;
+    }
+    
+    .right{
+        grid-area: right;
+        padding: 40px;
+        padding-bottom: 20px;
+        position: relative;
+        
+        .tooltip-container{
+            position: absolute;
+            left: 69%;
+            bottom: 90px;
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: -1;
+            transition: all 0.8s;
+            
+            .tooltip{
+                background-color: var(--dark-grayfish);
+                display: flex;
+                justify-content: space-around;
+                width: 160px;
+                padding: 15px 25px 15px 25px;
+                border-radius: 5px;
+                
+                
+                h5{
+                    color: var(--grayfish-blue);
+                    font-weight: lighter;
+                    font-size: 10px;letter-spacing: 5px;
+                    margin-top: 2px;
+                }
+                
+            }
+            
+            .tri{
+                width: 0;
+                height: 0;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-top: 10px solid var(--dark-grayfish);
+            }
+        }
+        
+        h3{
+            color: var(--dark-grayfish);
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        p{
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 25px;
+            
+        }
+        
+        .profile{
+            display: flex;
+            justify-content: space-between;
+            
+            .p-left{
+                
+                display: grid;
+                grid-template-areas: 
+                "pp name-id";
+                grid-template-columns: 1fr auto;
+                column-gap: 20px;
+                
+                img{
+                    grid-area: pp;
+                    width: 50px;
+                    border-radius: 50%;
+                }
+                
+                .name{
+                    grid-area: name-id;
+                    margin-top: 3px;
+                    
+                    h5{
+                        color: var(--dark-grayfish);
+                        margin-bottom: 2px;
+                    }
+                    
+                    p{
+                        color: var(--dark-blue);
+                    }
+                }
+            }
+            
+            
+            .p-right{
+                background-color: var(--light-grayfish);
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                text-align: center;
+                margin-top: 10px;
+                img{
+                    margin-top: 7px;
+                }
+            }
+            
+            .p-right:hover{
+                cursor: pointer;
+            }
+            
+            // .p-right:hover + .tooltip-container {
+            //     bottom: 90px;
+            //     opacity: 1;
+            //     z-index: 100;
+            // }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 950px) {
+    body{
+       min-height: 700px;
+    }
+    .container{
+        display: grid;
+        grid-template-areas: 
+        "left"
+        "right";
+        grid-template-columns: auto;
+        width: 80%;
+        margin-top: 100px;
+        
+        
+        .left{
+            width: 100%;
+            height: 200px;
+            background-color: red;
+            background-image: url('/images/drawers.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .right{
+            padding-bottom: 10px;
+            
+            h3{
+                font-size: 18px;
+            }
+            
+            p{
+                font-size: 12px;
+            }
+
+            .p-right{
+                z-index: 99;
+            }
+            
+            // .p-right:hover{
+            //     z-index: 99;
+            //     background-color: var(--light-grayfish);
+            // }
+            
+            // .p-right:hover + .tooltip-container {
+            //     bottom: 0 !important;
+            //     z-index: 0;
+            //     opacity: 1;
+            // }
+            
+            .tooltip-container{
+                bottom: 0;
+                left: 0;
+                opacity: 0;
+                z-index: -1;
+                width: 100%;
+                background-color: var(--dark-grayfish);
+                border-radius: 0 0 10px 10px;
+                display: block;
+                
+                .tri{
+                    display: none;
+                }
+                
+                .tooltip{
+                    margin-left: 30px;
+                    width: 60%;
+                    padding: 0;
+                    padding-top: 30px;
+                    padding-bottom: 45px;
+                    background:none;
+                    
+                    
+                    h5{
+                        font-size: 14px;
+                    }
+                }
+                
+            }
+        }
+    }
+} 
